@@ -18,3 +18,6 @@ Reference: https://blog.logrocket.com/how-to-set-up-node-typescript-express/
 8. Run this command to start the server : `npx ts-node index.ts`
 9. Install 2 packages: `nodemon` and `concurrently`:
     `npm install -D nodemon concurrently`
+10. Update the scripts in package.json:
+    `"dev": "concurrently \"npm run watch-ts\" \"npm run dev\""`
+11. Run `npm run dev` to start the server.
