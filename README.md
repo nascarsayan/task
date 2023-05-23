@@ -16,3 +16,5 @@ Reference: https://blog.logrocket.com/how-to-set-up-node-typescript-express/
 7. Change the require to import statement.
    `import express, { Express, Request, Response } from 'express';
 8. Run this command to start the server : `npx ts-node index.ts`
+9. Install 2 packages: `nodemon` and `concurrently`:
+    `npm install -D nodemon concurrently`
