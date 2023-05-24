@@ -30,3 +30,17 @@ You can copy the sample code from https://github.com/nascarsayan/task-api/blob/e
 - If you are facing issues, you can simply copy the files from the repo to your workspace, or clone the repo and run `npm install`.
 - Run `npm run dev` to start the server.
 - If your local setup has issues, got to https://stackblitz.com/github.com/nascarsayan/task-api/
+- Make the code changes to create your routes
+- While connecting the backend with frontend, you will face cors issues.
+ If you open developer tools in the browser, you will see the error message in the console:
+    ```
+    Access to fetch from origin 'http://127.0.0.1:5173' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.
+    ```
+- To fix this, enable cors in the express server by :
+    + installing the package `cors`:
+
+        `npm install cors; npm install -D @types/cors`;
+    + adding the following code in the `index.ts` file:
+
+        `import cors from 'cors';`
+    `app.use(cors());`

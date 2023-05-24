@@ -1,8 +1,10 @@
 // const express = require('express');
 import express, { Express, Request, Response } from "express";
+import cors from "cors";
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 function handleRoot(req: Request, res: Response) {
   return res.send("Hello World!");
