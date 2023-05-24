@@ -6,18 +6,23 @@ Steps:
 
 Reference: https://blog.logrocket.com/how-to-set-up-node-typescript-express/
 
-1. Create a directory for the project
-2. Go to the directory and run `npm init --yes`
-3. `npm install express`
-4. Create the file `index.js` and write the sample express code
-5. Run `node index.js` to start the server. Stop the server after ensuring the http://localhost:3000/ is accessible in the browser.
-6. Install `npm i -D typescript @types/node @types/express`
-7. `npx tsc --init`
-7. Change the require to import statement.
+- Create a directory for the project
+- Go to the directory and run `npm init --yes`
+- `npm install express`
+- Create the file `index.js` and write the sample express code.
+You can copy the sample code from https://github.com/nascarsayan/task-api/blob/e17a9373f4df38ae3f538756854564580d55cd92/index.js
+- Run `node index.js` to start the server. Stop the server after ensuring the http://localhost:3000/ is accessible in the browser.
+- Install
+
+    `npm i -D typescript @types/node @types/express`
+- `npx tsc --init`
+- Change the require to import statement.
    `import express, { Express, Request, Response } from 'express';
-8. Run this command to start the server : `npx ts-node index.ts`
-9. Install 2 packages: `nodemon` and `concurrently`:
+- Run this command to start the server : `npx ts-node index.ts`
+- Install 2 packages: `nodemon` and `concurrently`:
     `npm install -D nodemon concurrently`
-10. Update the scripts in package.json:
-    `"dev": "concurrently \"npm run watch-ts\" \"npm run dev\""`
-11. Run `npm run dev` to start the server.
+- Update package.json.
+    Change the "main" to "dist/index.js".
+    Add all the "scripts": { ... }.
+
+- Run `npm run dev` to start the server.
