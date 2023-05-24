@@ -15,14 +15,18 @@ You can copy the sample code from https://github.com/nascarsayan/task-api/blob/e
 - Install
 
     `npm i -D typescript @types/node @types/express`
-- `npx tsc --init`
+- `npx tsc --init` will create the `tsconfig.json` file.
+- Rename the `index.js` to `index.ts`, because now we can use typescript.
 - Change the require to import statement.
    `import express, { Express, Request, Response } from 'express';
 - Run this command to start the server : `npx ts-node index.ts`
 - Install 2 packages: `nodemon` and `concurrently`:
     `npm install -D nodemon concurrently`
+- Uncomment and change the "outDir" to "./dist" in the `tsconfig.json` file.
+
 - Update package.json.
     Change the "main" to "dist/index.js".
     Add all the "scripts": { ... }.
-
+- If you are facing issues, you can simply copy the files from the repo to your workspace, or clone the repo and run `npm install`.
 - Run `npm run dev` to start the server.
+- If your local setup has issues, got to https://stackblitz.com/github.com/nascarsayan/task-api/
