@@ -44,6 +44,10 @@ app.patch("/tasks/:id", (req: Request, res: Response) => {
       return res.send(tasks[i]);
     }
   }
+  // handle unkonwn id
+  return res
+    .status(404)
+    .send("No task with the given id was found");
 })
 
 app.post("/tasks", (req: Request, res: Response) => {
