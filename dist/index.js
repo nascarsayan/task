@@ -26,6 +26,23 @@ app.get("/", handleRoot);
 app.get("/tasks", (req, res) => {
     res.send(tasks);
 });
+app.patch("/tasks/:id", (req, res) => {
+    const id = req.params.id;
+    const body = req.body;
+    if (!(body.completed !== undefined &&
+        typeof body.completed === "boolean")) {
+        return res
+            .status(400)
+            .send("completed is required and should be a boolean");
+    }
+    const completed = body.completed;
+    for (let i = 0; i < tasks.length; i++) {
+        if (tasks[i].id === id) {
+            tasks[i].completed = completed;
+            return res.send(tasks[i]);
+        }
+    }
+});
 app.post("/tasks", (req, res) => {
     // extract the new task from the request body.
     const newTask = req.body;
