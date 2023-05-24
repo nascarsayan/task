@@ -57,3 +57,5 @@ Reference: https://www.prisma.io/docs/concepts/database-connectors/sqlite
 
 We went forward with using cuid. About cuid: https://www.prisma.io/docs/reference/api-reference/prisma-schema-reference#cuid
 - Add the schema for the models in your db. In our case, we only have the Task model.
+
+- Run `npx prisma db push` to create the db and the tables.
