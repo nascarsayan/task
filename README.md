@@ -53,3 +53,7 @@ Reference: https://www.prisma.io/docs/getting-started/setup-prisma/add-to-existi
 
 Change the schema file to use sqlite instead of postgresql
 Reference: https://www.prisma.io/docs/concepts/database-connectors/sqlite
+- Change `provider = "sqlite"` and `url      = "file:./dev.db"` 
+
+We went forward with using cuid. About cuid: https://www.prisma.io/docs/reference/api-reference/prisma-schema-reference#cuid
+- Add the schema for the models in your db. In our case, we only have the Task model.
