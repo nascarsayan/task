@@ -44,3 +44,12 @@ You can copy the sample code from https://github.com/nascarsayan/task-api/blob/e
 
         `import cors from 'cors';`
     `app.use(cors());`
+
+// Setting up prisma ORM using SQLite
+Reference: https://www.prisma.io/docs/getting-started/setup-prisma/add-to-existing-project/relational-databases-typescript-postgresql
+
+- npm install prisma --save-dev
+- npx prisma init
+
+Change the schema file to use sqlite instead of postgresql
+Reference: https://www.prisma.io/docs/concepts/database-connectors/sqlite
