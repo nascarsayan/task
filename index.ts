@@ -12,19 +12,6 @@ function handleRoot(req: Request, res: Response) {
   return res.send("Hello World!");
 }
 
-const tasks = [
-  {
-    id: "1",
-    description: "Drink water",
-    completed: false,
-  },
-  {
-    id: "2",
-    description: "Eat food",
-    completed: true,
-  },
-];
-
 app.get("/", handleRoot);
 
 app.get("/tasks", async (req: Request, res: Response) => {
@@ -32,7 +19,7 @@ app.get("/tasks", async (req: Request, res: Response) => {
   res.send(tasks);
 });
 
-app.patch("/tasks/:id", (req: Request, res: Response) => {
+app.patch("/tasks/:id", async (req: Request, res: Response) => {
   const id = req.params.id;
   const body = req.body;
   if (!(
@@ -43,16 +30,29 @@ app.patch("/tasks/:id", (req: Request, res: Response) => {
       .send("completed is required and should be a boolean");
   }
   const completed: boolean = body.completed;
-  for (let i = 0; i < tasks.length; i++) {
-    if (tasks[i].id === id) {
-      tasks[i].completed = completed;
-      return res.send(tasks[i]);
+
+  // first check if a task with the given id exists.
+  const task = await prisma.task.findUnique({
+    where: {
+      id: id
     }
-  }
-  // handle unkonwn id
-  return res
+  })
+  if (!task) {
+    return res
     .status(404)
     .send("No task with the given id was found");
+  }
+
+  // update the task with the given id.
+  const t = await prisma.task.update({
+    where: {
+      id: id
+    },
+    data: {
+      completed: completed
+    }
+  })
+  return res.send(t);
 })
 
 app.post("/tasks", async (req: Request, res: Response) => {
@@ -78,13 +78,14 @@ app.post("/tasks", async (req: Request, res: Response) => {
       .status(400)
       .send("completed is required and should be a boolean");
   }
-  for (const task of tasks) {
-    if (task.id === newTask.id) {
-      return res
-        .status(400)
-        .send("Another task with the same id already exists");
-    }
-  }
+  // TODO: check if a task with the same id already exists.
+  // for (const task of tasks) {
+  //   if (task.id === newTask.id) {
+  //     return res
+  //       .status(400)
+  //       .send("Another task with the same id already exists");
+  //   }
+  // }
   // Another check could be that only these three properties are sent in the request body. Any other property should not be allowed.
   // extract the properties of the new task.
   const {
@@ -100,7 +101,6 @@ app.post("/tasks", async (req: Request, res: Response) => {
       completed,
     }
   })
-  tasks.push(t);
   console.log(newTask);
   res.send(t);
 })
