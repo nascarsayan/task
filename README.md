@@ -69,3 +69,18 @@ We went forward with using cuid. About cuid: https://www.prisma.io/docs/referenc
 - **To interact with the database from the browser, run `npx prisma studio`**. This will open a browser window with the prisma studio. You can add, edit, delete the data from the browser.
 
 - **Try implementing the TODOs present inside the code.** 
+
+
+### Create mongodb atlas database
+
+- Select free tier
+- Create username and password of your choice.
+- If you generate random password, just copy it.
+
+IP address whitelist : 0.0.0.0/0
+
+username: admin
+password: <generate and copy>
+- Create the database
+- Click on connect, select mongodb driver, copy connection string, it will look like:
+`mongodb+srv://<username>:<password>@cluster0.ft8alfm.mongodb.net/?retryWrites=true&w=majority`
