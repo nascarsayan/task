@@ -2,6 +2,8 @@
 - express => web framework for node.js
 - typescript => language
 
+** After cloning the repository (either frontend repository or backend repository), run `npm install` to install all the dependencies. **
+
 Steps:
 
 Reference: https://blog.logrocket.com/how-to-set-up-node-typescript-express/
