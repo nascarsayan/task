@@ -67,3 +67,5 @@ We went forward with using cuid. About cuid: https://www.prisma.io/docs/referenc
     + https://www.prisma.io/express
 
 - **To interact with the database from the browser, run `npx prisma studio`**. This will open a browser window with the prisma studio. You can add, edit, delete the data from the browser.
+
+- **Try implementing the TODOs present inside the code.** 
