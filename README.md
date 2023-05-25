@@ -65,3 +65,5 @@ We went forward with using cuid. About cuid: https://www.prisma.io/docs/referenc
 - Check out these links to know how to use prisma client in your typescript project and express: 
     + https://www.prisma.io/docs/getting-started/setup-prisma/add-to-existing-project/relational-databases/querying-the-database-typescript-postgresql
     + https://www.prisma.io/express
+
+- **To interact with the database from the browser, run `npx prisma studio`**. This will open a browser window with the prisma studio. You can add, edit, delete the data from the browser.
