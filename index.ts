@@ -1,6 +1,8 @@
 // const express = require('express');
 import express, { Express, Request, Response } from "express";
 import cors from "cors";
+import { PrismaClient } from "@prisma/client";
+const prisma = new PrismaClient();
 
 const app = express();
 app.use(express.json());
@@ -25,7 +27,8 @@ const tasks = [
 
 app.get("/", handleRoot);
 
-app.get("/tasks", (req: Request, res: Response) => {
+app.get("/tasks", async (req: Request, res: Response) => {
+  const tasks = await prisma.task.findMany();
   res.send(tasks);
 });
 

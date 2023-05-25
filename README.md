@@ -59,3 +59,7 @@ We went forward with using cuid. About cuid: https://www.prisma.io/docs/referenc
 - Add the schema for the models in your db. In our case, we only have the Task model.
 
 - Run `npx prisma db push` to create the db and the tables.
+
+- Check out these links to know how to use prisma client in your typescript project and express: 
+    + https://www.prisma.io/docs/getting-started/setup-prisma/add-to-existing-project/relational-databases/querying-the-database-typescript-postgresql
+    + https://www.prisma.io/express
