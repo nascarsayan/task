@@ -55,7 +55,7 @@ app.patch("/tasks/:id", (req: Request, res: Response) => {
     .send("No task with the given id was found");
 })
 
-app.post("/tasks", (req: Request, res: Response) => {
+app.post("/tasks", async (req: Request, res: Response) => {
   // extract the new task from the request body.
   const newTask = req.body;
   // first check if all the required properties are sent in the request body.
@@ -93,11 +93,13 @@ app.post("/tasks", (req: Request, res: Response) => {
     completed,
   } = newTask;
   // add the new task to the tasks array.
-  const t = {
-    id,
-    description,
-    completed,
-  }
+  const t = await prisma.task.create({
+    data: {
+      id,
+      description,
+      completed,
+    }
+  })
   tasks.push(t);
   console.log(newTask);
   res.send(t);

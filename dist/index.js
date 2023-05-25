@@ -61,7 +61,7 @@ app.patch("/tasks/:id", (req, res) => {
         .status(404)
         .send("No task with the given id was found");
 });
-app.post("/tasks", (req, res) => {
+app.post("/tasks", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     // extract the new task from the request body.
     const newTask = req.body;
     // first check if all the required properties are sent in the request body.
@@ -93,15 +93,17 @@ app.post("/tasks", (req, res) => {
     // extract the properties of the new task.
     const { id, description, completed, } = newTask;
     // add the new task to the tasks array.
-    const t = {
-        id,
-        description,
-        completed,
-    };
+    const t = yield prisma.task.create({
+        data: {
+            id,
+            description,
+            completed,
+        }
+    });
     tasks.push(t);
     console.log(newTask);
     res.send(t);
-});
+}));
 app.listen(4000, () => {
     console.log("Server is running on http://localhost:4000");
 });
