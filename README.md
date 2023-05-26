@@ -84,3 +84,16 @@ password: <generate and copy>
 - Create the database
 - Click on connect, select mongodb driver, copy connection string, it will look like:
 `mongodb+srv://<username>:<password>@cluster0.ft8alfm.mongodb.net/?retryWrites=true&w=majority`
+
+- Inside .env, set the value of DATABSE_URL=`mongodb+srv://<username>:<password>@cluster0.ft8alfm.mongodb.net/<db-name>?retryWrites=true&w=majority`
+
+Giveany db-name of your choice.
+
+- Change the schema.prisma file to use mongodb instead of sqlite.
+  + `provider = "mongodb"`
+    `url      = env("DATABASE_URL")`
+
+  + `id String @id @default(auto()) @map("_id") @db.ObjectId`
+
+- Run `npx prisma db push` to create the db and the tables.
+- Run `npx prisma studio` to open the prisma studio in the browser.
