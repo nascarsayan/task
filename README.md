@@ -87,7 +87,7 @@ password: <generate and copy>
 
 - Inside .env, set the value of DATABSE_URL=`mongodb+srv://<username>:<password>@cluster0.ft8alfm.mongodb.net/<db-name>?retryWrites=true&w=majority`
 
-Giveany db-name of your choice.
+Give any db-name of your choice.
 
 - Change the schema.prisma file to use mongodb instead of sqlite.
   + `provider = "mongodb"`
@@ -97,3 +97,11 @@ Giveany db-name of your choice.
 
 - Run `npx prisma db push` to create the db and the tables.
 - Run `npx prisma studio` to open the prisma studio in the browser.
+
+## Deploying the backend to railway.app
+
+- Login to `railway.app`. Create an empty project.
+- Install the railway cli : `npm i -g @railway/cli`
+  If this installation was successful, you can substitute `npx @railway/cli` with `railway` in every command.
+- Login using `npx @railway/cli login`.
+- Link the project using `npx @railway/cli link`.
